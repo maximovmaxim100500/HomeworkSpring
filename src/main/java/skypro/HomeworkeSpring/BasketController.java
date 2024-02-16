@@ -18,11 +18,11 @@ public class BasketController {
     }
 
     @GetMapping("/add")
-    public Basket add(@RequestParam("ID") List<Integer> itemIDs, HttpSession session) {
+    public List<Integer> add(@RequestParam("ID") List<Integer> itemIDs, HttpSession session) {
         Basket basket = (Basket) session.getAttribute("basket");
         basket = basketService.addItemToBasket(basket, itemIDs);
         session.setAttribute("basket", basket);
-        return basket;
+        return itemIDs;
     }
 
     @GetMapping("/get")
