@@ -11,7 +11,9 @@ public class BasketService {
         if (basket == null) {
             basket = new Basket();
         }
-        basket.getItems().addAll(itemIds);
+        for (int itemId:itemIds) {
+            basket.addItem(itemId);
+        }
         return basket;
     }
 
