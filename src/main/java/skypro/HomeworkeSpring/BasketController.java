@@ -28,7 +28,7 @@ public class BasketController {
     @GetMapping("/get")
     public Basket get(HttpSession session) {
         Basket basket = (Basket) session.getAttribute("basket");
-        return BasketService.getBasket(basket);
+        return basketService.getBasket(basket);
     }
 
 }
