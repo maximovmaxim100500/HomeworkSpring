@@ -6,26 +6,24 @@ import java.util.List;
 
 @Service
 public class BasketService {
-    private final Basket basket;
+    private Basket basket;
 
     public BasketService(Basket basket) {
         this.basket = basket;
     }
 
-    public Basket addItemToBasket(Basket basket, List<Integer> itemIds) {
+    public void addItemToBasket(List<Integer> itemIds) {
         if (basket == null) {
             basket = new Basket();
         }
         for (int itemId : itemIds) {
             basket.addItem(itemId);
         }
-        return basket;
     }
 
-    public Basket getBasket(Basket basket) {
-
+    public List<Integer> getBasket() {
         if (basket != null) {
-            return basket;
+            return basket.getItems();
         }
         return null;
     }
